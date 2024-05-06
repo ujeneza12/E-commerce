@@ -1,5 +1,6 @@
 package com.rca.ac.rw.Ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class Quantity {
     private String operation;
     private Date date;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name ="product-quantity", referencedColumnName = "id")
     private Product product;
