@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.context.annotation.Profile;
+
 import java.util.Date;
 
 @Getter
@@ -34,5 +36,7 @@ public class Purchased {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    private LocalUser customer;
+    private LocalUser user;
+
+
 }

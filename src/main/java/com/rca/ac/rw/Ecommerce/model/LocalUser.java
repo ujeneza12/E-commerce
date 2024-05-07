@@ -23,7 +23,7 @@ public class LocalUser {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "user")
     private List<Purchased> purchased;
 
 
