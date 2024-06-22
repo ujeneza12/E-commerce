@@ -1,9 +1,7 @@
 package com.rca.ac.rw.Ecommerce.api.model;
 
 import com.rca.ac.rw.Ecommerce.model.dao.AllowedEmailDomains;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 
 
 import lombok.Getter;
@@ -14,6 +12,7 @@ import lombok.Setter;
 public class RegistrationModel {
 
     @NotNull
+    @NotEmpty(message = "firstname is required")
     private String firstname;
 
     @NotNull
@@ -24,11 +23,13 @@ public class RegistrationModel {
     private String email;
 
     @NotNull
+    @NotEmpty(message = "Phone number is required")
+    @Pattern(regexp = "^\\d{10}$", message = "Phone number must be 10 digits")
     private String phone;
 
     @NotNull
-//    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$")
-//    @Size(min=8,max=32)
+    @NotEmpty(message = "password is required")
+    @Size(min=8,max=32)
     private String password;
 
 
