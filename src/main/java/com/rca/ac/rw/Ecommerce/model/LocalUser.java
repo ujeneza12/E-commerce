@@ -17,6 +17,7 @@ public class LocalUser {
     private  Long id;
     private String firstname;
     private String phone;
+
     private String email;
     private String password;
 

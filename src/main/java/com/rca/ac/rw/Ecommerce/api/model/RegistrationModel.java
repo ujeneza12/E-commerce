@@ -1,10 +1,12 @@
 package com.rca.ac.rw.Ecommerce.api.model;
 
+import com.rca.ac.rw.Ecommerce.model.dao.AllowedEmailDomains;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import lombok.Getter;
 
+
+import lombok.Getter;
 import lombok.Setter;
 
 @Getter
@@ -16,7 +18,11 @@ public class RegistrationModel {
 
     @NotNull
     @Email
+    @NotEmpty(message = "Email is required")
+    @Email(message = "Email should be valid")
+    @AllowedEmailDomains(domains = {"gmail.com", "outlook.com","yahoo.com"})
     private String email;
+
     @NotNull
     private String phone;
 

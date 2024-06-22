@@ -6,16 +6,13 @@ import com.rca.ac.rw.Ecommerce.api.model.RegistrationModel;
 import com.rca.ac.rw.Ecommerce.exception.UserExistsException;
 import com.rca.ac.rw.Ecommerce.model.LocalUser;
 import com.rca.ac.rw.Ecommerce.model.dao.LocalUserDAO;
-import jakarta.validation.Valid;
-import jakarta.validation.Validator;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.Errors;
+
 
 import java.util.Optional;
 
 @Service
 public class UserServices {
-
 
     private LocalUserDAO localUserDAO;
     private EncryptionService encryptionService;
@@ -29,7 +26,7 @@ public class UserServices {
 
     }
 
-
+    //function for user registeration for accepting user inputs
     public LocalUser registerUser( RegistrationModel registrationModel)  throws  UserExistsException {
 
         if(localUserDAO.findByEmailIgnoreCase(registrationModel.getEmail()).isPresent()){
@@ -45,6 +42,7 @@ public class UserServices {
 
     }
 
+    //function for userlogin
     public String loginUser(LoginModel loginModel) {
 
         Optional<LocalUser> opUser = localUserDAO.findByEmailIgnoreCase(loginModel.getEmail());
